@@ -1,1 +1,426 @@
-<h1>Hola Mundo</h1>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz San Valentín 💕</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #FF1493;
+            --secondary-color: #FF69B4;
+            --text-light: #ffffff;
+            --text-dark: #2c2c2c;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+        }
+
+        .hearts-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 35px;
+            opacity: 0;
+            animation: float 4s ease-in-out infinite;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+        }
+
+        @keyframes float {
+            0% {
+                opacity: 0;
+                transform: translateY(0) scale(0.3) rotate(0deg);
+            }
+            25% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 1;
+                transform: translateY(-100px) scale(1) rotate(180deg);
+            }
+            75% {
+                opacity: 0.8;
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-200px) scale(0.5) rotate(360deg);
+            }
+        }
+
+        .container {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            padding: 60px 40px;
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 40px;
+            box-shadow: 
+                0 30px 80px rgba(0, 0, 0, 0.25),
+                0 0 0 1px rgba(255, 255, 255, 0.5) inset;
+            max-width: 650px;
+            width: 90%;
+            animation: fadeInUp 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+            backdrop-filter: blur(10px);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .emoji-main {
+            font-size: 100px;
+            display: inline-block;
+            animation: heartbeat 1.5s ease-in-out infinite;
+            filter: drop-shadow(0 8px 16px rgba(255, 20, 147, 0.3));
+            margin-bottom: 20px;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% {
+                transform: scale(1);
+            }
+            10% {
+                transform: scale(1.1);
+            }
+            20% {
+                transform: scale(1);
+            }
+            30% {
+                transform: scale(1.1);
+            }
+            40% {
+                transform: scale(1);
+            }
+        }
+
+        h1 {
+            font-family: 'Pacifico', cursive;
+            font-size: 3.5em;
+            color: var(--primary-color);
+            margin: 20px 0 30px;
+            animation: slideInLeft 1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s backwards;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            line-height: 1.2;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .name {
+            font-family: 'Pacifico', cursive;
+            font-size: 5em;
+            font-weight: bold;
+            background: linear-gradient(135deg, var(--primary-color) 0%, #FF1493 50%, #C71585 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 40px 0;
+            animation: 
+                slideInRight 1s cubic-bezier(0.16, 1, 0.3, 1) 0.5s backwards,
+                shimmer 3s ease-in-out infinite;
+            filter: drop-shadow(0 4px 8px rgba(255, 20, 147, 0.2));
+            position: relative;
+            line-height: 1;
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes shimmer {
+            0%, 100% {
+                filter: drop-shadow(0 4px 8px rgba(255, 20, 147, 0.2)) brightness(1);
+            }
+            50% {
+                filter: drop-shadow(0 4px 16px rgba(255, 20, 147, 0.4)) brightness(1.1);
+            }
+        }
+
+        .message {
+            font-size: 1.5em;
+            color: var(--text-dark);
+            line-height: 1.8;
+            margin-top: 30px;
+            animation: fadeIn 1s ease-out 0.8s backwards;
+            font-weight: 400;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .decorative-hearts {
+            position: absolute;
+            font-size: 40px;
+            opacity: 0.15;
+            animation: rotate 20s linear infinite;
+        }
+
+        .decorative-hearts.top-left {
+            top: -20px;
+            left: -20px;
+        }
+
+        .decorative-hearts.top-right {
+            top: -20px;
+            right: -20px;
+            animation-direction: reverse;
+        }
+
+        .decorative-hearts.bottom-left {
+            bottom: -20px;
+            left: -20px;
+            animation-direction: reverse;
+        }
+
+        .decorative-hearts.bottom-right {
+            bottom: -20px;
+            right: -20px;
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 40px 30px;
+                width: 95%;
+            }
+
+            h1 {
+                font-size: 2.5em;
+            }
+
+            .name {
+                font-size: 3.5em;
+            }
+
+            .message {
+                font-size: 1.2em;
+            }
+
+            .emoji-main {
+                font-size: 80px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .name {
+                font-size: 2.8em;
+            }
+
+            .message {
+                font-size: 1.1em;
+            }
+
+            .emoji-main {
+                font-size: 70px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hearts-background" id="heartsContainer"></div>
+    
+    <div class="container">
+        <div class="decorative-hearts top-left">💕</div>
+        <div class="decorative-hearts top-right">💖</div>
+        <div class="decorative-hearts bottom-left">💗</div>
+        <div class="decorative-hearts bottom-right">💘</div>
+        
+        <div class="emoji-main">💖</div>
+        <h1>¡Feliz San Valentín!</h1>
+        <div class="name" id="nombre">Amor</div>
+        <div class="message">
+            Eres la razón por la que cada día es especial. 
+            Que este día esté lleno de amor, risas y momentos 
+            inolvidables juntos. ¡Te amo con todo mi corazón!
+        </div>
+    </div>
+
+    <script>
+        // Función para validar y normalizar colores hexadecimales
+        function validateColor(color) {
+            if (!color) return null;
+            
+            // Manejar color encoded (%23)
+            color = color.replace('%23', '#');
+            
+            // Agregar # si no está presente
+            if (!color.startsWith('#')) {
+                color = '#' + color;
+            }
+            
+            // Validar formato hexadecimal
+            if (/^#[0-9A-F]{6}$/i.test(color)) {
+                return color.toUpperCase();
+            }
+            
+            return null;
+        }
+
+        // Función para generar un color más claro
+        function lightenColor(hex, percent) {
+            // Convertir hex a RGB
+            const r = parseInt(hex.slice(1, 3), 16);
+            const g = parseInt(hex.slice(3, 5), 16);
+            const b = parseInt(hex.slice(5, 7), 16);
+            
+            // Aumentar brillo
+            const newR = Math.min(255, Math.floor(r + (255 - r) * (percent / 100)));
+            const newG = Math.min(255, Math.floor(g + (255 - g) * (percent / 100)));
+            const newB = Math.min(255, Math.floor(b + (255 - b) * (percent / 100)));
+            
+            // Convertir de vuelta a hex
+            return '#' + [newR, newG, newB].map(x => {
+                const hex = x.toString(16);
+                return hex.length === 1 ? '0' + hex : hex;
+            }).join('').toUpperCase();
+        }
+
+        // Función para oscurecer color (para mejor gradiente)
+        function darkenColor(hex, percent) {
+            const r = parseInt(hex.slice(1, 3), 16);
+            const g = parseInt(hex.slice(3, 5), 16);
+            const b = parseInt(hex.slice(5, 7), 16);
+            
+            const newR = Math.max(0, Math.floor(r * (1 - percent / 100)));
+            const newG = Math.max(0, Math.floor(g * (1 - percent / 100)));
+            const newB = Math.max(0, Math.floor(b * (1 - percent / 100)));
+            
+            return '#' + [newR, newG, newB].map(x => {
+                const hex = x.toString(16);
+                return hex.length === 1 ? '0' + hex : hex;
+            }).join('').toUpperCase();
+        }
+
+        // Obtener parámetros de la URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const nombre = urlParams.get('nombre') || urlParams.get('name') || 'Amor';
+        const colorParam = urlParams.get('color');
+
+        // Aplicar nombre
+        document.getElementById('nombre').textContent = nombre;
+
+        // Aplicar colores personalizados si el color es válido
+        const primaryColor = validateColor(colorParam);
+        if (primaryColor) {
+            const secondaryColor = lightenColor(primaryColor, 30);
+            const darkColor = darkenColor(primaryColor, 15);
+            
+            // Actualizar variables CSS
+            document.documentElement.style.setProperty('--primary-color', primaryColor);
+            document.documentElement.style.setProperty('--secondary-color', secondaryColor);
+            
+            // Actualizar gradiente del fondo
+            document.body.style.background = `linear-gradient(135deg, ${primaryColor} 0%, ${secondaryColor} 100%)`;
+            
+            // Actualizar gradiente del nombre
+            const nameElement = document.getElementById('nombre');
+            nameElement.style.background = `linear-gradient(135deg, ${primaryColor} 0%, ${primaryColor} 50%, ${darkColor} 100%)`;
+            nameElement.style.webkitBackgroundClip = 'text';
+            nameElement.style.backgroundClip = 'text';
+        }
+
+        // Crear corazones flotantes
+        const heartsContainer = document.getElementById('heartsContainer');
+        const heartEmojis = ['❤️', '💕', '💖', '💗', '💘', '💝', '💞', '💓'];
+        
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.textContent = heartEmojis[Math.floor(Math.random() * heartEmojis.length)];
+            
+            // Posición aleatoria
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.top = '100%';
+            
+            // Delay aleatorio para animación
+            heart.style.animationDelay = Math.random() * 2 + 's';
+            
+            // Duración aleatoria
+            heart.style.animationDuration = (3 + Math.random() * 2) + 's';
+            
+            heartsContainer.appendChild(heart);
+            
+            // Remover después de la animación
+            setTimeout(() => {
+                heart.remove();
+            }, 6000);
+        }
+
+        // Crear corazones continuamente
+        setInterval(createHeart, 300);
+        
+        // Crear corazones iniciales
+        for (let i = 0; i < 15; i++) {
+            setTimeout(createHeart, i * 200);
+        }
+    </script>
+</body>
+</html>
